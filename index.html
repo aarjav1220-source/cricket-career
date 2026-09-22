@@ -1,205 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<meta name="theme-color" content="#06090f">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<link rel="manifest" href="manifest.json">
-<link rel="icon" href="icon.svg" type="image/svg+xml">
-<title>Cricket Career</title>
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#07131f"><link rel="manifest" href="manifest.json"><link rel="icon" href="icon.svg">
+<title>Cricket Career Ultimate</title>
 <style>
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-body{margin:0;background:#06090f;color:#fff;font-family:Arial,Helvetica,sans-serif}
-button,input,select{font:inherit}button{touch-action:manipulation}
-.app{max-width:720px;margin:auto;padding:16px;padding-bottom:28px}
-.hidden{display:none!important}.logo{font-size:30px;font-weight:900}.sub{color:#8f9aac;margin:5px 0 18px}
-.card{background:#111722;border:1px solid #263044;border-radius:20px;padding:16px;margin-bottom:14px}
-.hero{padding:24px;text-align:center;border-radius:22px;background:linear-gradient(145deg,#122419,#10151d);margin-bottom:14px}
-.big{font-size:50px;font-weight:900}.score{text-align:center;font-size:52px;font-weight:900}
-h1,h2,h3{margin-top:0}label{display:block;color:#aeb8c9;font-size:13px;margin-top:10px}
-input,select{width:100%;padding:14px;margin:7px 0 10px;border-radius:12px;border:1px solid #303b50;background:#090d15;color:#fff}
-button{width:100%;padding:15px;border:0;border-radius:14px;margin:5px 0;font-weight:800;font-size:15px}
-.primary{background:#79ff6d;color:#061006}.secondary{background:#242d3e;color:#fff}.danger{background:#672432;color:#fff}
-.menu{display:grid;grid-template-columns:1fr 1fr;gap:9px}.menu button{min-height:72px}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.stat{background:#090d15;border-radius:13px;padding:11px 4px;text-align:center}.stat b{display:block;font-size:20px}.stat span{color:#8d98aa;font-size:10px}
-.progress{height:10px;background:#202838;border-radius:20px;overflow:hidden}.progress div{height:100%;background:#79ff6d;width:0}
-.badge{display:inline-block;background:#252e3d;padding:7px 11px;border-radius:20px;margin:3px;font-size:12px}
-.runGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.runGrid button{min-height:64px;background:#242d3e;color:#fff}.runGrid .attack{background:#16506a}.runGrid .safe{background:#27572c}.runGrid .risky{background:#6a4d1e}.runGrid .wicket{background:#702534}
-.log{max-height:230px;overflow:auto}.ball{display:flex;justify-content:space-between;padding:10px;border-bottom:1px solid #202938}
-.ball small{color:#8d98aa}.situation{text-align:center;font-size:28px;font-weight:900;margin:8px 0}.choice{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.choice button{min-height:58px}.green{color:#79ff6d}.red{color:#ff687d}.yellow{color:#ffd75e}
-table{width:100%;border-collapse:collapse;min-width:500px}th,td{padding:10px;border-bottom:1px solid #293246;text-align:left}th{color:#9aa6b8;font-size:12px}
-.scroll{overflow-x:auto}.notice{padding:12px;border-radius:12px;background:#182132;color:#cbd4e3;margin:10px 0}
-@media(max-width:450px){.stats{grid-template-columns:repeat(2,1fr)}.runGrid{grid-template-columns:repeat(2,1fr)}.app{padding:12px}.score{font-size:44px}}
-</style>
-</head>
-<body>
-<div class="app">
+*{box-sizing:border-box}body{margin:0;background:#061019;color:#fff;font:14px Arial,sans-serif}.app{max-width:720px;margin:auto;padding:12px 12px 60px}.top{display:flex;justify-content:space-between;align-items:center;padding:10px 2px 14px}.logo{font-size:22px;font-weight:900}.logo span,.green{color:#31d17b}.pill{font-size:10px;color:#31d17b;border:1px solid #286344;padding:7px;border-radius:20px}.card{background:#0d1a25;border:1px solid #213344;border-radius:18px;padding:16px;margin:10px 0}.hero{text-align:center;padding:25px}.ball{font-size:55px}.hero h1{font-size:30px;margin:8px}.sub{color:#91a3b5;line-height:1.5}label{display:block;color:#91a3b5;font-size:10px;font-weight:bold;margin:12px 0 5px;text-transform:uppercase}input,select{width:100%;padding:13px;border-radius:10px;background:#07121b;color:#fff;border:1px solid #263a4b}button{border:0;border-radius:11px;padding:13px;font-weight:900;cursor:pointer}.primary{background:#31d17b;color:#03130b;width:100%;margin-top:10px}.secondary{background:#142534;color:#fff;border:1px solid #294052;width:100%;margin-top:10px}.danger{background:#32161c;color:#ff8795;width:100%;margin-top:10px}.hidden{display:none!important}.profile{display:flex;align-items:center;gap:12px}.avatar{width:55px;height:55px;border-radius:50%;display:grid;place-items:center;background:#18364b;font-size:23px;font-weight:900}.profile b{font-size:19px}.profile small{color:#91a3b5}.rating{margin-left:auto;text-align:center}.rating b{display:block;color:#ffc94d;font-size:25px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.stat{text-align:center;background:#09141e;border:1px solid #1d2e3d;border-radius:12px;padding:11px}.stat b{display:block;font-size:20px}.stat span{display:block;color:#91a3b5;font-size:9px;margin-top:4px}.title{font-weight:900;font-size:17px;margin-bottom:10px}.row{display:flex;justify-content:space-between;padding:11px 2px;border-bottom:1px solid #1b2a37}.badge{background:#182b3c;padding:5px 8px;border-radius:8px;font-size:10px}.scorebox{text-align:center;background:#10271b;border:1px solid #286344;border-radius:16px;padding:20px}.score{font-size:55px;font-weight:900}.shot{background:#182736;color:#fff;border:1px solid #2b4254;min-height:60px}.safe{background:#143323}.risk{background:#34271a}.big{background:#39202b}.log{max-height:190px;overflow:auto}.log div{padding:7px;border-bottom:1px solid #1b2a37;font-size:12px}.modal{position:fixed;inset:0;background:#000b;display:grid;place-items:center;padding:20px}.modal>div{background:#0d1a25;border:1px solid #294052;border-radius:18px;padding:20px;max-width:500px;width:100%}
+</style></head><body><div class="app"><div class="top"><div class="logo">CRICKET<span>CAREER</span></div><div class="pill" id="season">SEASON 1</div></div>
 
-<button id="installBtn" class="secondary hidden" style="margin-bottom:12px">📲 INSTALL CRICKET CAREER</button>
+<section id="setup"><div class="card hero"><div class="ball">🏏</div><h1>Build Your Legacy</h1><p class="sub">From rookie to international legend. Play matches, earn contracts, win trophies and build your career.</p></div><div class="card"><div class="title">Create Player</div><label>Name</label><input id="name" placeholder="Your name"><label>Team</label><select id="team"></select><label>Role</label><select id="role"><option>Batter</option><option>All-rounder</option><option>Bowler</option></select><label>Batting hand</label><select id="hand"><option>Right-hand</option><option>Left-hand</option></select><button class="primary" onclick="create()">START CAREER</button></div></section>
 
-<section id="setup">
-  <div class="logo">🏏 CRICKET CAREER</div><div class="sub">Your career. Your decisions. Your legacy.</div>
-  <div class="card"><h2>Create Player</h2>
-    <label>Player Name</label><input id="playerName" placeholder="Enter your name">
-    <label>Team</label><select id="team"><option>India</option><option>Australia</option><option>England</option><option>South Africa</option><option>New Zealand</option><option>Pakistan</option><option>Sri Lanka</option></select>
-    <label>Batting Hand</label><select id="hand"><option>Right Hand</option><option>Left Hand</option></select>
-    <button class="primary" id="createBtn">START CAREER</button>
-  </div>
-</section>
+<section id="home" class="hidden"><div class="card profile"><div class="avatar" id="avatar"></div><div><b id="pn"></b><small id="pt"></small></div><div class="rating"><b id="rt"></b><small>RATING</small></div></div><div class="grid3"><div class="stat"><b id="runs"></b><span>RUNS</span></div><div class="stat"><b id="matches"></b><span>MATCHES</span></div><div class="stat"><b id="avg"></b><span>AVERAGE</span></div></div><div class="card"><div class="title">Career Hub</div><div class="grid2"><button class="primary" onclick="setupMatch()">🏏 PLAY MATCH</button><button class="secondary" onclick="page('season')">📅 SEASON</button><button class="secondary" onclick="page('stats')">📊 STATS</button><button class="secondary" onclick="page('history')">📜 HISTORY</button><button class="secondary" onclick="page('trophies')">🏆 TROPHIES</button><button class="secondary" onclick="page('contract')">💰 CONTRACT</button></div></div><div class="card"><div class="row"><span>Form</span><b class="green" id="form"></b></div><div class="row"><span>International</span><b id="intl"></b></div><div class="row"><span>Fans</span><b id="fans"></b></div><div class="row"><span>Money</span><b class="green" id="money"></b></div></div><button class="danger" onclick="resetGame()">RESET CAREER</button></section>
 
-<section id="home" class="hidden">
-  <div class="logo">🏏 CRICKET CAREER</div><div class="sub">Career Hub</div>
-  <div class="hero"><h2 id="homePlayer">Player</h2><div class="big" id="homeRating">60</div><div>PLAYER RATING</div></div>
-  <div class="card"><div class="stats">
-    <div class="stat"><b id="homeRuns">0</b><span>RUNS</span></div><div class="stat"><b id="homeMatches">0</b><span>MATCHES</span></div>
-    <div class="stat"><b id="homeFifties">0</b><span>50s</span></div><div class="stat"><b id="homeHundreds">0</b><span>100s</span></div>
-  </div></div>
-  <div class="menu">
-    <button class="primary" data-page="matchSetup">🏏 PLAY MATCH</button>
-    <button class="secondary" data-page="career">📊 CAREER</button>
-    <button class="secondary" data-page="stats">📈 STATS</button>
-    <button class="secondary" data-page="history">📜 HISTORY</button>
-  </div>
-</section>
+<section id="matchSetup" class="hidden"><div class="card"><div class="title">🏏 Match Centre</div><label>Format</label><select id="format"><option>Domestic T20</option><option>One-Day Cup</option><option>Test Championship</option><option>Premier League</option><option>International T20</option><option>ODI International</option><option>Test International</option></select><label>Opponent</label><select id="opp"></select><button class="primary" onclick="page('toss')">🪙 GO TO TOSS</button><button class="secondary" onclick="home()">← HOME</button></div></section>
+<section id="toss" class="hidden"><div class="card hero"><div class="ball">🪙</div><h1 id="tt">TOSS</h1><p class="sub" id="ts">Choose heads or tails.</p><div class="grid2"><button class="secondary" onclick="doToss('Heads')">HEADS</button><button class="secondary" onclick="doToss('Tails')">TAILS</button></div><div id="tc" class="hidden"><p class="sub">You won! Choose your innings.</p><div class="grid2"><button class="primary" onclick="start('bat')">BAT</button><button class="secondary" onclick="start('bowl')">BOWL</button></div></div></div></section>
 
-<section id="career" class="hidden">
-  <h1>Career Hub</h1>
-  <div class="card"><h2 id="careerName">Player</h2>
-    <p>Rating: <b id="careerRating">60</b></p><p>Form: <b id="careerForm">75</b></p><div class="progress"><div id="formBar"></div></div>
-    <p>Season: <b id="seasonNumber">1</b></p><p>Season Runs: <b id="seasonRuns">0</b></p><p>Season Matches: <b id="seasonMatches">0</b></p>
-  </div>
-  <div class="card"><h3>Selection</h3><div id="selectionStatus"></div></div>
-  <div class="card"><h3>🏆 Awards</h3><div id="awards"></div></div>
-  <button class="primary" data-page="matchSetup">PLAY NEXT MATCH</button>
-  <button class="secondary" id="seasonBtn">END SEASON</button><button class="secondary" data-page="home">BACK</button>
-</section>
+<section id="match" class="hidden"><div class="card"><div class="row"><span id="comp"></span><b id="op"></b></div><div class="scorebox"><div class="score"><span id="mr">0</span>/<span id="mw">0</span></div><div class="sub"><span id="mb">0</span> balls • <span id="sit"></span></div></div></div><div class="card"><div class="title">Choose your shot</div><div class="grid2"><button class="shot safe" onclick="ball('defend')">🛡️ DEFEND<br><small>Low risk</small></button><button class="shot safe" onclick="ball('rotate')">🔄 ROTATE<br><small>1–3 runs</small></button><button class="shot risk" onclick="ball('attack')">⚡ ATTACK<br><small>Boundaries</small></button><button class="shot risk" onclick="ball('loft')">🚀 LOFT<br><small>2–6 runs</small></button><button class="shot big" onclick="ball('big')">💥 BIG SHOT<br><small>Huge reward</small></button><button class="shot" onclick="ball('leave')">🧠 LEAVE<br><small>Safe</small></button></div></div><div class="card"><div class="title">Commentary</div><div class="log" id="log"></div></div><button class="secondary" onclick="finish()">END INNINGS</button></section>
 
-<section id="matchSetup" class="hidden">
-  <h1>Match Setup</h1>
-  <div class="card">
-    <label>Format</label><select id="format"><option>T20</option><option>ODI</option><option>TEST</option></select>
-    <label>Opponent</label><select id="opponent"><option>Australia</option><option>England</option><option>South Africa</option><option>New Zealand</option><option>Sri Lanka</option><option>Pakistan</option><option>Bangladesh</option></select>
-    <label>Batting Position</label><select id="position"><option>1</option><option>2</option><option>3</option><option selected>4</option><option>5</option><option>6</option><option>7</option><option>8</option></select>
-    <button class="primary" id="startMatchBtn">START MATCH</button><button class="secondary" data-page="home">BACK</button>
-  </div>
-</section>
+<section id="result" class="hidden"><div class="card hero"><div class="ball">🏆</div><h1 id="resTitle">Innings Complete</h1><div class="score" id="rr"></div><p class="sub" id="resText"></p></div><div class="card grid3"><div class="stat"><b id="rsr"></b><span>STRIKE RATE</span></div><div class="stat"><b id="r4"></b><span>FOURS</span></div><div class="stat"><b id="r6"></b><span>SIXES</span></div></div><button class="primary" onclick="saveMatch()">SAVE PERFORMANCE</button></section>
 
-<section id="toss" class="hidden">
-  <h1>Coin Toss</h1><div class="card">
-    <div class="hero"><div class="big">🪙</div><h2 id="tossResult">TOSS</h2><p id="tossText">Choose heads or tails.</p></div>
-    <div class="choice"><button class="primary tossChoice" data-choice="Heads">HEADS</button><button class="secondary tossChoice" data-choice="Tails">TAILS</button></div>
-    <div id="tossDecision" class="hidden"><h3>Choose your decision</h3><button class="primary" id="batFirstBtn">🏏 BAT FIRST</button><button class="secondary" id="bowlFirstBtn">🎯 BOWL FIRST</button></div>
-  </div>
-</section>
-
-<section id="match" class="hidden">
-  <div class="card"><div id="matchTitle" class="sub"></div><div class="score"><span id="runs">0</span>/<span id="wickets">0</span></div><div class="overs"><span id="overs">0.0</span> overs</div>
-    <div class="stats"><div class="stat"><b id="batRuns">0</b><span>BATTER</span></div><div class="stat"><b id="batBalls">0</b><span>BALLS</span></div><div class="stat"><b id="fours">0</b><span>4s</span></div><div class="stat"><b id="sixes">0</b><span>6s</span></div></div>
-  </div>
-  <div class="card"><div class="notice" id="situation"></div><div class="situation" id="targetInfo"></div>
-    <h3>Choose your shot</h3><div class="runGrid">
-      <button class="safe" data-shot="defend">DEFEND<br><small>Safe</small></button>
-      <button class="safe" data-shot="rotate">ROTATE<br><small>1–2</small></button>
-      <button class="attack" data-shot="attack">ATTACK<br><small>2–4</small></button>
-      <button class="attack" data-shot="loft">LOFT<br><small>4–6</small></button>
-      <button class="risky" data-shot="big">BIG SHOT<br><small>6 or OUT</small></button>
-      <button class="wicket" data-shot="leave">LEAVE<br><small>Dot</small></button>
-    </div>
-    <button class="secondary" id="finishBtn">FINISH INNINGS</button>
-  </div>
-  <div class="card"><h3>Ball by Ball</h3><div id="ballLog" class="log"></div></div>
-</section>
-
-<section id="postMatch" class="hidden">
-  <div class="hero"><h1 id="resultTitle">MATCH RESULT</h1><div id="resultText"></div></div>
-  <div class="card"><h2>Your Innings</h2><div class="stats"><div class="stat"><b id="finalBatRuns">0</b><span>RUNS</span></div><div class="stat"><b id="finalBalls">0</b><span>BALLS</span></div><div class="stat"><b id="finalFours">0</b><span>4s</span></div><div class="stat"><b id="finalSixes">0</b><span>6s</span></div></div></div>
-  <div class="card scroll"><h2>Team Scorecard</h2><table><thead><tr><th>BATTER</th><th>R</th><th>B</th><th>4s</th><th>6s</th></tr></thead><tbody id="scorecardBody"></tbody></table></div>
-  <div class="card"><h2>Match Summary</h2><p id="summary"></p></div>
-  <button class="primary" id="continueBtn">CONTINUE CAREER</button>
-</section>
-
-<section id="stats" class="hidden">
-  <h1>Career Stats</h1><div class="card"><div class="stats">
-    <div class="stat"><b id="statMatches">0</b><span>MATCHES</span></div><div class="stat"><b id="statRuns">0</b><span>RUNS</span></div>
-    <div class="stat"><b id="statHS">0</b><span>HIGH SCORE</span></div><div class="stat"><b id="statHundreds">0</b><span>100s</span></div>
-  </div><br><div class="stats"><div class="stat"><b id="statFours">0</b><span>4s</span></div><div class="stat"><b id="statSixes">0</b><span>6s</span></div><div class="stat"><b id="statAvg">0.00</b><span>AVERAGE</span></div><div class="stat"><b id="statSR">0.0</b><span>STRIKE RATE</span></div></div></div>
-  <button class="secondary" data-page="home">BACK</button>
-</section>
-
-<section id="history" class="hidden"><h1>Match History</h1><div id="historyList"></div><button class="secondary" data-page="home">BACK</button></section>
-</div>
+<section id="stats" class="hidden"><div class="card"><div class="title">📊 Career Records</div><div id="statsBox" class="grid2"></div></div><button class="secondary" onclick="home()">← HOME</button></section>
+<section id="history" class="hidden"><div class="card"><div class="title">📜 Match History</div><div id="hist"></div></div><button class="secondary" onclick="home()">← HOME</button></section>
+<section id="trophies" class="hidden"><div class="card"><div class="title">🏆 Trophies & Awards</div><div id="troph"></div></div><button class="secondary" onclick="home()">← HOME</button></section>
+<section id="seasonPage" class="hidden"><div class="card"><div class="title">📅 Season Dashboard</div><div id="seasonBox"></div></div><button class="primary" onclick="nextSeason()">⏭️ FINISH SEASON</button><button class="secondary" onclick="home()">← HOME</button></section>
+<section id="contract" class="hidden"><div class="card"><div class="title">💰 Contract & Transfers</div><div id="contractBox"></div><button class="primary" onclick="renew()">RENEW CONTRACT</button><button class="secondary" onclick="transfer()">REQUEST TRANSFER</button></div><button class="secondary" onclick="home()">← HOME</button></section>
+</div><div id="modal" class="modal hidden"><div><div class="title" id="mt"></div><p class="sub" id="mx"></p><button class="primary" onclick="closeModal()">CONTINUE</button></div></div>
 
 <script>
-"use strict";
-let career=null, match=null;
-
-const $=id=>document.getElementById(id);
-const pages=["setup","home","career","matchSetup","toss","match","postMatch","stats","history"];
-function save(){localStorage.setItem("cricketCareerV2",JSON.stringify(career))}
-function load(){try{const x=localStorage.getItem("cricketCareerV2");if(x){career=JSON.parse(x);return true}}catch(e){}return false}
-function defaultCareer(){return {player:"Player",team:"India",hand:"Right Hand",rating:60,form:75,season:1,seasonRuns:0,seasonMatches:0,matches:0,innings:0,runs:0,outs:0,balls:0,fours:0,sixes:0,fifties:0,hundreds:0,highest:0,awards:[],history:[]}}
-function showPage(page){pages.forEach(p=>$(p).classList.add("hidden"));$(page).classList.remove("hidden");if(page==="home")updateHome();if(page==="career")updateCareer();if(page==="stats")updateStats();if(page==="history")updateHistory()}
-function createCareer(){const n=$("playerName").value.trim();if(!n){alert("Enter your player name!");return}career=defaultCareer();career.player=n;career.team=$("team").value;career.hand=$("hand").value;save();showPage("home")}
-function updateHome(){if(!career)return;$("homePlayer").textContent=career.player;$("homeRating").textContent=career.rating;$("homeRuns").textContent=career.runs;$("homeMatches").textContent=career.matches;$("homeFifties").textContent=career.fifties;$("homeHundreds").textContent=career.hundreds}
-function updateCareer(){if(!career)return;$("careerName").textContent=career.player;$("careerRating").textContent=career.rating;$("careerForm").textContent=career.form;$("seasonNumber").textContent=career.season;$("seasonRuns").textContent=career.seasonRuns;$("seasonMatches").textContent=career.seasonMatches;$("formBar").style.width=career.form+"%";$("selectionStatus").innerHTML=career.rating>=75?"<span class='badge'>🌍 INTERNATIONAL SELECTION UNLOCKED</span>":"<span class='badge'>🏟️ DOMESTIC CRICKET</span>";$("awards").innerHTML=career.awards.length?career.awards.map(a=>"<span class='badge'>🏆 "+a+"</span>").join(""):"No awards yet."}
-function setupMatch(){const format=$("format").value;let maxBalls=format==="T20"?120:format==="ODI"?300:540;match={format,opponent:$("opponent").value,position:$("position").value,runs:0,wickets:0,balls:0,batRuns:0,batBalls:0,fours:0,sixes:0,log:[],maxBalls,inningsDone:false,target:null,batFirst:true,opponentScore:0};showPage("toss");$("tossResult").textContent="TOSS";$("tossText").textContent="Choose heads or tails.";$("tossDecision").classList.add("hidden")}
-function doToss(choice){const coin=Math.random()<.5?"Heads":"Tails";const won=choice===coin;$("tossResult").textContent=won?"🎉 YOU WON THE TOSS":"TOSS LOST";$("tossText").textContent="Coin: "+coin+(won?" — choose your innings.":" — "+match.opponent+" will decide.");$("tossDecision").classList.toggle("hidden",!won);if(!won){match.batFirst=Math.random()<.5;setTimeout(()=>beginMatch(match.batFirst),600)}}
-function beginMatch(batFirst){match.batFirst=batFirst;$("matchTitle").textContent=career.team+" vs "+match.opponent+" • "+match.format+(batFirst?" • BATTING":" • BOWLING");if(!batFirst){const base=match.format==="T20"?Math.floor(145+Math.random()*75):match.format==="ODI"?Math.floor(235+Math.random()*160):Math.floor(260+Math.random()*250);match.target=base+1;match.opponentScore=base}$("match").classList.remove("hidden");pages.filter(p=>p!=="match").forEach(p=>$(p).classList.add("hidden"));nextSituation();updateMatch()}
-function nextSituation(){if(!match)return;let remaining=match.maxBalls-match.balls;let req=match.target?Math.max(0,match.target-match.runs):0;let oversLeft=Math.floor(remaining/6);$("situation").textContent=match.target?("CHASE: "+req+" needed from "+remaining+" balls"):("MATCH SITUATION • "+(match.runs)+"/"+match.wickets+" after "+Math.floor(match.balls/6)+"."+match.balls%6);$("targetInfo").textContent=match.target?(req<=0?"TARGET REACHED!":req+" off "+remaining):("Need a big score • "+oversLeft+" overs left")}
-function updateMatch(){if(!match)return;$("runs").textContent=match.runs;$("wickets").textContent=match.wickets;$("overs").textContent=Math.floor(match.balls/6)+"."+match.balls%6;$("batRuns").textContent=match.batRuns;$("batBalls").textContent=match.batBalls;$("fours").textContent=match.fours;$("sixes").textContent=match.sixes;$("ballLog").innerHTML=match.log.slice().reverse().map(x=>"<div class='ball'><span><small>"+x.ball+"</small></span><b>"+x.text+"</b></div>").join("");nextSituation()}
-function ballLabel(){return Math.floor((match.balls-1)/6)+"."+((match.balls-1)%6+1)}
-function playShot(shot){if(!match||match.inningsDone)return;if(match.balls>=match.maxBalls){finishInnings();return}let r=0,out=false;let x=Math.random();const rating=career.rating;const boost=(rating-60)/300;
-if(shot==="defend"){if(x<.78)r=x<.42?0:1;else if(x<.96)r=2;else out=true}
-if(shot==="leave"){if(x<.90)r=0;else if(x<.98)r=1;else out=true}
-if(shot==="rotate"){if(x<.72)r=1;else if(x<.94)r=2;else if(x<.98)r=3;else out=true}
-if(shot==="attack"){if(x<.30)r=1;else if(x<.62)r=2;else if(x<.84)r=4;else if(x<.91)r=6;else if(x<.96)r=3;else out=true}
-if(shot==="loft"){if(x<.22)r=2;else if(x<.58)r=4;else if(x<.80)r=6;else if(x<.93)r=3;else out=true}
-if(shot==="big"){if(x<.46)r=6;else if(x<.68)r=4;else if(x<.80)r=2;else out=true}
-if(x<Math.max(0,.05-boost)&&shot!=="leave")out=true;
-match.balls++;match.batBalls++;if(out){match.wickets++;match.log.push({ball:ballLabel(),text:"🔴 WICKET — "+(shot==="big"?"BIG SHOT FAILED":"CAUGHT / BOWLED")});match.inningsDone=true;updateMatch();setTimeout(finishInnings,350);return}
-match.runs+=r;match.batRuns+=r;if(r===4)match.fours++;if(r===6)match.sixes++;match.log.push({ball:ballLabel(),text:r===0?"DOT BALL":"+"+r+" RUN"+(r>1?"S":"")});if(match.target&&match.runs>=match.target){updateMatch();setTimeout(finishInnings,350);return}updateMatch();if(match.balls>=match.maxBalls)setTimeout(finishInnings,250)}
-function finishInnings(){if(!match||match.inningsDone&&match._finished)return;match._finished=true;showPostMatch()}
-function simulateTeamScore(){if(match.target)return match.opponentScore;const fmt=match.format;const base=fmt==="T20"?Math.floor(150+Math.random()*70):fmt==="ODI"?Math.floor(240+Math.random()*150):Math.floor(280+Math.random()*250);return Math.max(base,match.runs+Math.floor(Math.random()*45))}
-function showPostMatch(){const opponent=match.target?match.opponentScore:simulateTeamScore();let our=match.batFirst?match.runs:opponent;let opp=match.batFirst?opponent:match.runs;let result=our>opp?"VICTORY":our<opp?"DEFEAT":"DRAW";if(match.target&&match.runs>=match.target)result="VICTORY";recordMatch(result);$("resultTitle").textContent=result==="VICTORY"?"🏆 VICTORY":result==="DEFEAT"?"❌ DEFEAT":"🤝 DRAW";$("resultText").textContent=career.team+" "+our+"/"+match.wickets+" vs "+match.opponent+" "+opp; $("finalBatRuns").textContent=match.batRuns;$("finalBalls").textContent=match.batBalls;$("finalFours").textContent=match.fours;$("finalSixes").textContent=match.sixes;
-let rows="<tr><td><b>"+career.player+"</b></td><td>"+match.batRuns+"</td><td>"+match.batBalls+"</td><td>"+match.fours+"</td><td>"+match.sixes+"</td></tr>";["Opener","No.3","All-Rounder","Finisher","Keeper","Bowler 1","Bowler 2"].forEach((n,i)=>{let r=Math.floor(Math.random()*38);rows+="<tr><td>"+n+"</td><td>"+r+"</td><td>"+Math.max(3,r+Math.floor(Math.random()*25))+"</td><td>"+Math.floor(r/16)+"</td><td>"+Math.floor(r/30)+"</td></tr>"});$("scorecardBody").innerHTML=rows;$("summary").textContent="You scored "+match.batRuns+" from "+match.batBalls+" balls. "+career.team+" "+our+"/"+match.wickets+"; "+match.opponent+" "+opp+". "+(result==="VICTORY"?"Your performance helped secure the win.":result==="DEFEAT"?"The team fell short this time.":"The match ended level.");showPage("postMatch")}
-function recordMatch(result){career.matches++;career.innings++;career.runs+=match.batRuns;career.balls+=match.batBalls;career.fours+=match.fours;career.sixes+=match.sixes;career.seasonMatches++;career.seasonRuns+=match.batRuns;if(match.wickets)career.outs++;career.highest=Math.max(career.highest,match.batRuns);if(match.batRuns>=100){career.hundreds++;career.awards.push("Century")}else if(match.batRuns>=50){career.fifties++;career.awards.push("Half Century")}if(match.batRuns>=30){career.rating=Math.min(99,career.rating+Math.max(1,Math.floor(match.batRuns/35)));career.form=Math.min(100,career.form+4)}else career.form=Math.max(0,career.form-3);career.history.unshift({date:new Date().toLocaleDateString(),format:match.format,opponent:match.opponent,runs:match.batRuns,balls:match.batBalls,team:match.batFirst?match.runs:match.opponentScore,wickets:match.wickets,result});save()}
-function updateStats(){if(!career)return;$("statMatches").textContent=career.matches;$("statRuns").textContent=career.runs;$("statHS").textContent=career.highest;$("statHundreds").textContent=career.hundreds;$("statFours").textContent=career.fours;$("statSixes").textContent=career.sixes;const outs=career.outs||0;$("statAvg").textContent=(outs?career.runs/outs:career.runs).toFixed(2);$("statSR").textContent=(career.balls?career.runs*100/career.balls:0).toFixed(1)}
-function updateHistory(){const b=$("historyList");if(!career.history.length){b.innerHTML="<div class='card'>No matches played yet.</div>";return}b.innerHTML=career.history.map(m=>"<div class='card'><h3>"+m.format+" • vs "+m.opponent+"</h3><p><b>"+m.runs+"</b> ("+m.balls+")</p><p>Team: "+m.team+"/"+m.wickets+"</p><p>Result: <b>"+m.result+"</b></p><small>"+m.date+"</small></div>").join("")}
-function nextSeason(){if(career.seasonMatches<3){alert("Play at least 3 matches before ending the season!");return}if(career.seasonRuns>=500)career.awards.push("Season Run Machine");else if(career.seasonRuns>=250)career.awards.push("Season Top Performer");career.season++;career.seasonRuns=0;career.seasonMatches=0;career.form=Math.min(100,career.form+10);save();updateCareer();alert("New season started! Season "+career.season)}
-document.addEventListener("click",e=>{const p=e.target.closest("[data-page]");if(p)showPage(p.dataset.page);const s=e.target.closest("[data-shot]");if(s)playShot(s.dataset.shot)});
-$("createBtn").addEventListener("click",createCareer);$("startMatchBtn").addEventListener("click",setupMatch);document.querySelectorAll(".tossChoice").forEach(b=>b.addEventListener("click",()=>doToss(b.dataset.choice)));$("batFirstBtn").addEventListener("click",()=>beginMatch(true));$("bowlFirstBtn").addEventListener("click",()=>beginMatch(false));$("finishBtn").addEventListener("click",finishInnings);$("continueBtn").addEventListener("click",()=>{match=null;showPage("home")});$("seasonBtn").addEventListener("click",nextSeason);
-window.addEventListener("load",()=>showPage(load()?"home":"setup"));
-
-// PWA installation
-let deferredInstallPrompt = null;
-window.addEventListener("beforeinstallprompt", (event) => {
-  event.preventDefault();
-  deferredInstallPrompt = event;
-  const btn = document.getElementById("installBtn");
-  if (btn) btn.classList.remove("hidden");
-});
-document.addEventListener("click", async (event) => {
-  if (event.target && event.target.id === "installBtn" && deferredInstallPrompt) {
-    deferredInstallPrompt.prompt();
-    await deferredInstallPrompt.userChoice;
-    deferredInstallPrompt = null;
-    event.target.classList.add("hidden");
-  }
-});
-window.addEventListener("appinstalled", () => {
-  const btn = document.getElementById("installBtn");
-  if (btn) btn.classList.add("hidden");
-});
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./service-worker.js").catch(() => {});
-  });
-}
-
-</script>
-</body>
-</html>
+const teams=["Delhi Falcons","Mumbai Strikers","Chennai Kings","Kolkata Warriors","Bengaluru Blazers","Hyderabad Titans","Rajasthan Royals XI","Punjab Lions"],countries=["Australia","England","South Africa","New Zealand","Pakistan","Sri Lanka","Bangladesh","West Indies"];let c=null,m=null;
+team.innerHTML=teams.map(x=>`<option>${x}</option>`).join("");
+function blank(){return{player:"",team:"",role:"Batter",hand:"Right-hand",season:1,age:18,rating:55,form:50,matches:0,innings:0,runs:0,outs:0,notOuts:0,balls:0,fours:0,sixes:0,highest:0,fifties:0,hundreds:0,twenties:0,thirties:0,ducks:0,bestSR:0,wins:0,losses:0,fans:100,money:50000,salary:50000,years:2,intl:false,awards:[],history:[],seasonMatches:0,seasonRuns:0}}
+function save(){localStorage.setItem("ccUltimate",JSON.stringify(c))}
+function page(id){document.querySelectorAll("section").forEach(x=>x.classList.add("hidden"));document.getElementById(id).classList.remove("hidden");if(id==="home")update();if(id==="stats")stats();if(id==="history")history();if(id==="trophies")trophies();if(id==="seasonPage")seasonPage();if(id==="contract")contract();season.textContent="SEASON "+(c?.season||1)}
+function home(){page("home")}
+function create(){if(!name.value.trim())return alert("Enter your name");c=blank();c.player=name.value.trim();c.team=team.value;c.role=role.value;c.hand=hand.value;save();home()}
+function update(){pn.textContent=c.player;pt.textContent=`${c.team} • ${c.role} • Age ${c.age}`;avatar.textContent=c.player[0].toUpperCase();rt.textContent=c.rating;runs.textContent=c.runs;matches.textContent=c.matches;avg.textContent=(c.outs?c.runs/c.outs:c.runs).toFixed(2);form.textContent=c.form+"/100";intl.textContent=c.intl?"SELECTED":"DOMESTIC";fans.textContent=c.fans.toLocaleString();money.textContent="₹"+c.money.toLocaleString("en-IN")}
+function setupMatch(){opp.innerHTML=[...teams,...countries].filter(x=>x!==c.team).map(x=>`<option>${x}</option>`).join("");page("matchSetup")}
+function doToss(call){let coin=Math.random()<.5?"Heads":"Tails";tt.textContent=call===coin?"YOU WON!":"OPPONENT WON!";ts.textContent="Coin: "+coin;if(call===coin)tc.classList.remove("hidden");else{tc.classList.add("hidden");setTimeout(()=>start(Math.random()<.5?"bat":"bowl"),600)}}
+function start(choice){let f=format.value,max=f.includes("Test")?120:f.includes("ODI")||f.includes("One-Day")?75:30;m={f,o:opp.value,choice,runs:choice==="bat"?Math.floor(Math.random()*70):0,w:choice==="bat"?Math.floor(Math.random()*4):0,b:choice==="bat"?Math.floor(Math.random()*20):0,f4:0,f6:0,max,log:[],out:false,target:choice==="bowl"?Math.floor(Math.random()*60)+40:null,oppRuns:0};comp.textContent=f;op.textContent=m.o;log.innerHTML="";say("Match begins. "+(choice==="bat"?`You start at ${m.runs}/${m.w}.`:`Opponent target: ${m.target}.`));page("match");upd()}
+function say(x){m.log.unshift(x);log.innerHTML=m.log.slice(0,20).map(x=>`<div>${x}</div>`).join("")}
+function ball(type){if(m.out)return;let q=Math.random(),r=0,w=false;if(type==="defend"){r=q<.7?0:q<.96?1:2;w=q<.025}if(type==="leave"){r=q<.94?0:1;w=q<.01}if(type==="rotate"){r=q<.2?0:q<.65?1:q<.9?2:3;w=q<.035}if(type==="attack"){r=q<.15?1:q<.45?2:q<.72?4:q<.9?6:3;w=q<.06}if(type==="loft"){r=q<.18?2:q<.52?4:q<.76?6:3;w=q<.075}if(type==="big"){r=q<.35?6:q<.7?4:q<.8?2:0;w=q>=.8}m.b++;if(w){m.w++;m.out=true;say("💥 OUT! The big moment didn't come off.")}else{m.runs+=r;if(r===4)m.f4++;if(r===6)m.f6++;say(r===6?"🔥 SIX!":r===4?"💥 FOUR!":r?`${r} run${r>1?"s":""}.`:"Dot ball.")}if(m.choice==="bowl"){m.oppRuns=(m.oppRuns||0)+r;if(m.oppRuns>=m.target){m.out=true;say("Opponent reaches the target.")}}upd();if(m.out||m.b>=m.max||m.w>=10)finish()}
+function upd(){mr.textContent=m.runs;mw.textContent=m.w;mb.textContent=m.b;sit.textContent=m.choice==="bat"?"Batting":"Bowling challenge"}
+function finish(){let sr=m.b?m.runs/m.b*100:0;rr.textContent=m.runs;rsr.textContent=sr.toFixed(1);r4.textContent=m.f4;r6.textContent=m.f6;resTitle.textContent=m.runs>=100?"CENTURY!":m.runs>=50?"FIFTY!":"INNINGS COMPLETE";resText.textContent=`${m.runs} runs from ${m.b} balls • ${m.f4} fours • ${m.f6} sixes`;page("result")}
+function saveMatch(){let sr=m.b?m.runs/m.b*100:0;c.matches++;c.innings++;c.runs+=m.runs;c.balls+=m.b;c.fours+=m.f4;c.sixes+=m.f6;c.seasonMatches++;c.seasonRuns+=m.runs;c.highest=Math.max(c.highest,m.runs);c.bestSR=Math.max(c.bestSR,sr);if(m.out){c.outs++;c.form=Math.max(10,c.form-2)}else{c.notOuts++;c.form=Math.min(100,c.form+4)}if(m.runs===0)c.ducks++;else if(m.runs>=100){c.hundreds++;c.rating=Math.min(99,c.rating+4);c.awards.unshift("🏆 Century — Season "+c.season)}else if(m.runs>=50){c.fifties++;c.rating=Math.min(99,c.rating+2);c.awards.unshift("⭐ Fifty — Season "+c.season)}else if(m.runs>=30)c.thirties++;else if(m.runs>=20)c.twenties++;c.fans+=Math.max(5,m.runs*2);c.money+=c.salary;c.history.unshift({s:c.season,f:m.f,o:m.o,r:m.runs,b:m.b});if(c.rating>=70&&!c.intl){c.intl=true;c.awards.unshift("🌍 International selection");modal("INTERNATIONAL CALL-UP","Your rating reached "+c.rating+". You earned a national-team selection.");}save();home()}
+function stats(){let a=c.outs?c.runs/c.outs:c.runs,s=c.balls?c.runs/c.balls*100:0;let x=[["Matches",c.matches],["Innings",c.innings],["Runs",c.runs],["Average",a.toFixed(2)],["Highest",c.highest],["Strike Rate",s.toFixed(2)],["Balls",c.balls],["4s",c.fours],["6s",c.sixes],["50s",c.fifties],["100s",c.hundreds],["Not Outs",c.notOuts],["Best SR",c.bestSR.toFixed(1)]];statsBox.innerHTML=x.map(v=>`<div class="stat"><b>${v[1]}</b><span>${v[0]}</span></div>`).join("")}
+function history(){hist.innerHTML=c.history.length?c.history.map(h=>`<div class="row"><span><b>${h.r} (${h.b})</b><br><small>${h.f} • vs ${h.o} • Season ${h.s}</small></span><b class="badge">MATCH</b></div>`).join(""):"<p class=sub>No matches yet.</p>"}
+function trophies(){troph.innerHTML=c.awards.length?c.awards.map(x=>`<div class=row>${x}<b class=green>★</b></div>`).join(""):"<p class=sub>No awards yet. Keep playing!</p>"}
+function seasonPage(){seasonBox.innerHTML=`<div class=row><span>Season</span><b>${c.season}</b></div><div class=row><span>Matches</span><b>${c.seasonMatches}</b></div><div class=row><span>Runs</span><b>${c.seasonRuns}</b></div><div class=row><span>Rating</span><b>${c.rating}</b></div>`}
+function nextSeason(){if(c.seasonRuns>=500){c.awards.unshift("🏆 Season run champion — S"+c.season);c.rating=Math.min(99,c.rating+3)}c.season++;c.age++;c.seasonMatches=0;c.seasonRuns=0;c.salary+=10000;c.years++;save();modal("NEW SEASON","Season "+c.season+" begins. Salary increased to ₹"+c.salary.toLocaleString("en-IN")+" per match.");home()}
+function contract(){contractBox.innerHTML=`<div class=row><span>Team</span><b>${c.team}</b></div><div class=row><span>Salary</span><b class=green>₹${c.salary.toLocaleString("en-IN")}</b></div><div class=row><span>Years</span><b>${c.years}</b></div><div class=row><span>Rating</span><b>${c.rating}</b></div>`}
+function renew(){c.years+=2;c.salary+=15000;c.money+=25000;save();contract();modal("CONTRACT RENEWED","New salary: ₹"+c.salary.toLocaleString("en-IN")+" per match.")}
+function transfer(){let a=teams.filter(x=>x!==c.team);c.team=a[Math.floor(Math.random()*a.length)];c.money+=50000;c.awards.unshift("🔄 Transfer to "+c.team);save();contract();modal("TRANSFER COMPLETE","You transferred to "+c.team+".")}
+function modal(t,x){mt.textContent=t;mx.textContent=x;document.getElementById("modal").classList.remove("hidden")}function closeModal(){document.getElementById("modal").classList.add("hidden")}
+function resetGame(){if(confirm("Delete the entire career?")){localStorage.removeItem("ccUltimate");c=null;page("setup")}}
+try{c=JSON.parse(localStorage.getItem("ccUltimate"))}catch(e){}if(c)home();else page("setup");if("serviceWorker"in navigator)navigator.serviceWorker.register("./service-worker.js").catch(()=>{});
+</script></body></html>
